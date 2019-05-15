@@ -6,15 +6,6 @@
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
 
-Image.create!({
+Image.where({
   image_url: "http://lobodobodo.s3.us-west-1.amazonaws.com/uploads/11804b2f-0830-48d2-909e-5ec5d8f213db/and_my_axe.jpeg"
-})
-Image.create!({
-  image_url: "http://lobodobodo.s3.us-west-1.amazonaws.com/uploads/11804b2f-0830-48d2-909e-5ec5d8f213db/and_my_axe.jpeg"
-})
-Image.create!({
-  image_url: "http://lobodobodo.s3.us-west-1.amazonaws.com/uploads/11804b2f-0830-48d2-909e-5ec5d8f213db/and_my_axe.jpeg"
-})
-Image.create!({
-  image_url: "http://lobodobodo.s3.us-west-1.amazonaws.com/uploads/11804b2f-0830-48d2-909e-5ec5d8f213db/and_my_axe.jpeg"
-})
+}).destroy_all
