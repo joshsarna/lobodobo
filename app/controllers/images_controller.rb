@@ -25,7 +25,12 @@ class ImagesController < ApplicationController
   # POST /images
   # POST /images.json
   def create
+    p "*" * 88
+    p params
+    p "*" * 88
     @image = Image.new(image_params)
+
+    p "*" * 88
 
     respond_to do |format|
       if @image.save
@@ -74,6 +79,8 @@ class ImagesController < ApplicationController
     end
 
     def set_s3_direct_post
-      @s3_direct_post = S3_BUCKET.presigned_post(key: "uploads/#{SecureRandom.uuid}/${filename}", success_action_status: '201', acl: 'public-read')
+      @s3_direct_post = Aws::S3::Resource.new.bucket(ENV['S3_BUCKET_NAME']).presigned_post(key: "uploads/#{SecureRandom.uuid}/${filename}", success_action_status: '201', acl: 'public-read')
+      p @s3_direct_post
+      p "%" * 88
     end
 end
