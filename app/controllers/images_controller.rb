@@ -6,6 +6,7 @@ class ImagesController < ApplicationController
   # GET /images.json
   def index
     @images = Image.all
+    @quarter_count = @images.length / 4
   end
 
   # GET /images/1
